@@ -1,0 +1,1636 @@
+<div ng-app="marketApp" class="ng-scope">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+    <!-- <style>
+            /*.swiper-slide {*/
+            /*    width: 325px;*/
+            /*    margin-right: 0 !important;*/
+            /*}*/
+            #golden-bar {
+                height: 100px;
+                width: 30%;
+            }
+    }
+            .sts_bg {
+                background-color: #738c89;
+    
+            }
+    
+            .sts_bg_2 {
+                background-color: #f47c3d;
+            }
+    
+            .sts_text {
+                color: #738c89;
+            }
+    
+            @import url('https://fonts.googleapis.com/css?family=Playfair+Display');
+            @import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300i');
+            @import url('https://fonts.googleapis.com/css?family=Prata');
+    
+            .font-Header {
+                font-family: 'Playfair Display', serif;
+            }
+    
+            .font-Header-sub {
+                font-family: 'Open Sans Condensed', sans-serif;
+            }
+    
+            .font-Header-cap {
+                text-transform: uppercase;
+            }
+    
+            .emptyClass {}
+        </style> -->
+
+
+    <!-- <script>
+            jQuery(document).ready(function ($) {
+                var alterClass = function () {
+                    var ww = document.body.clientWidth;
+                    if (ww < 600) {
+                        $('.infor-height').removeClass('height-600');
+                    } else if (ww >= 601) {
+                        $('.infor-height').addClass('height-600');
+                    };
+                };
+                $(window).resize(function () {
+                    alterClass();
+                });
+                //Fire it when the page first loads:
+                alterClass();
+            });
+        </script> -->
+
+    <!-- 
+        <div class="grid-wrapper background-image" style="background-image:url('https://www.americasmart.com/hubfs/images/shop-the-show-backgroundFlowers.jpg')">
+            <div class="overlay white-bg-trans-70"> </div>
+            <div class="grid-container">
+                <div class="column eight hero height-500">
+                    <div class="margin-three">
+                        <div class="column eight alt_margin" style=""> <img class="align-center block width-100 center" src="https://www.americasmart.com/hubfs/sts_update/shop-the-show_logo-single-color.jpg"
+                                style="max-width:500px;" /> </div>
+    
+                    </div>
+                </div>
+            </div> -->
+
+    <style>
+        .font-size-new {
+            font-size: 14px;
+        }
+
+        .zine-box {
+            transition-property: transform;
+            transition-duration: 3s;
+        }
+
+        .swiper-button-prev {
+            left: -14px;
+        }
+
+        .swiper-button-next {
+            right: -14px;
+        }
+
+        .swiper-button-prev,
+        .swiper-button-next {
+            width: 40px;
+            height: 34px;
+            background: rgba(255, 255, 255, 1.0);
+            background: none;
+        }
+
+        .parallax-bg {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 130%;
+            height: 100%;
+            /*-webkit-background-size: cover;
+                        background-size: cover;*/
+            background-position: center center;
+            background-repeat: repeat;
+        }
+
+        .fraction {
+            position: absolute;
+            top: 10px;
+            left: 0;
+            right: 0;
+            margin: auto;
+        }
+
+        .controls,
+        .showguide-controls {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 140px;
+            height: 100%;
+            display: none;
+        }
+
+        @media screen and (max-width:650px) {
+            .fraction {
+                text-align: right;
+                top: 5px;
+            }
+            /*.fraction:after {
+                    font-family: 'amc-www';
+                    content:" \2192 ";
+                  }*/
+        }
+
+        @media screen and (min-width:1300px) {
+            .width-95 {
+                width: 100%;
+            }
+        }
+
+        .border-top-blue {
+            border-top: 3px solid #00c0f2;
+        }
+
+        .border-top-amg-gray-5 {
+            border-top: 3px solid #666666;
+        }
+
+        .speakers .swiper-slide,
+        .videos .swiper-slide,
+        .live {
+            width: auto;
+        }
+
+        .speakers .swiper-wrapper,
+        .live .swiper-wrapper {
+            height: 400px;
+        }
+
+        .schedule .swiper-slide {
+            width: auto;
+        }
+
+        .events .swiper-slide {
+            width: 280px;
+            margin: 0 0 0 0;
+        }
+
+        .events .swiper-slide a.next {
+            color: #666;
+        }
+
+        .events .swiper-slide .height-200 {
+            background-size: cover;
+            background-position: center center;
+            border-top-left-radius: inherit;
+            border-top-right-radius: inherit;
+            background-repeat: no-repeat;
+        }
+
+        .events .swiper-slide *.amc-icon {
+            color: #ff3388 !important;
+        }
+
+        .live-magenta {
+            color: #ea0e8c;
+        }
+
+        .live-cyan {
+            color: #2cabe2;
+        }
+
+        .live-green {
+            color: #ccdc2c;
+        }
+
+        .live-magenta-bg {
+            background-color: #ea0e8c;
+        }
+
+        .live-cyan-bg {
+            background-color: #2cabe2;
+        }
+
+        .live-green-bg {
+            background-color: #ccdc2c;
+        }
+
+        .live-magenta-bg-trans {
+            background-color: rgba(234, 14, 140, 0.8);
+        }
+
+        .live-cyan-bg-trans {
+            background-color: rgba(44, 171, 226, 0.8);
+        }
+
+        .live-green-bg-trans {
+            background-color: rgba(204, 220, 44, 0.8);
+        }
+
+        .ytVideos .swiper-slide {
+            width: 280px;
+        }
+
+        .ytVideos .height-250 {
+            position: relative;
+            padding-top: 30px;
+            padding-bottom: 45%;
+            height: 0;
+            overflow: hidden;
+        }
+
+        .ytVideos .height-250,
+        .ytVideos .height-250+.padding-four>h3 {
+            cursor: pointer;
+        }
+
+        .ytVideos .height-250 iframe {
+            width: 100%;
+            height: 100%;
+        }
+
+        .ytVideos iframe,
+        .video-frame iframe {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .play {
+            background: #0e1111;
+            border-radius: 50% / 10%;
+            color: #FFFFFF;
+            font-size: 2em;
+            height: 50px;
+            margin: auto;
+            padding: 0;
+            position: absolute;
+            text-align: center;
+            text-indent: 0.1em;
+            transition: all 150ms ease-out;
+            width: 70px;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+        }
+
+        .play:hover {
+            background: #cd201f;
+        }
+
+        .play::before {
+            background: inherit;
+            border-radius: 5% / 50%;
+            bottom: 9%;
+            content: "";
+            left: -5%;
+            position: absolute;
+            right: -5%;
+            top: 9%;
+        }
+
+        .play::after {
+            border-style: solid;
+            border-width: 11px 0 11px 22px;
+            border-color: transparent transparent transparent rgba(255, 255, 255, 0.75);
+            content: ' ';
+            height: 0;
+            position: absolute;
+            width: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            left: 7px;
+            right: 0;
+        }
+
+        .thumb-limit {
+            max-height: 190px;
+            max-width: 190px;
+            width: auto;
+            border: 1px solid #d8d8d8 !important;
+        }
+
+        .showguide-controls {
+            display: block;
+            height: 50px;
+            float: right;
+            position: inherit;
+        }
+
+        .swiper-button-prev {
+            left: -14px;
+        }
+
+        .swiper-button-next {
+            right: -14px;
+        }
+
+        .swiper-button-prev,
+        .swiper-button-next {
+            width: 40px;
+            height: 34px;
+            background: rgba(255, 255, 255, 1.0);
+            background: none;
+        }
+
+        .parallax-bg {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 130%;
+            height: 100%;
+            /*-webkit-background-size: cover;
+                    background-size: cover;*/
+            background-position: center center;
+            background-repeat: repeat;
+        }
+
+        .fraction {
+            position: absolute;
+            top: 9px;
+        }
+
+        .controls,
+        .showguide-controls {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 140px;
+            height: 100%;
+            display: none;
+        }
+
+        /*#videos .height-250 {position:relative;padding-top:30px;padding-bottom:46%;height:0;overflow:hidden;}*/
+
+        /*#videos .height-250 iframe {width:100%;height:100%;}*/
+
+        @media screen and (max-width:650px) {
+            .fraction {
+                text-align: right;
+                top: 5px;
+            }
+            /*.fraction:after {*/
+            /*  font-family: 'amc-www';*/
+            /*  content:" \2192 ";*/
+            /*}*/
+        }
+
+        .sts_bg {
+            background-color: #738c89;
+        }
+
+        .sts_bg_2 {
+            background-color: #af7d71;
+        }
+
+        .sts_text {
+            color: #738c89;
+        }
+
+        @import url('https://fonts.googleapis.com/css?family=Playfair+Display');
+        @import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300i');
+        @import url('https://fonts.googleapis.com/css?family=Prata');
+        .font-Header {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .font-Header-sub {
+            font-family: 'Open Sans Condensed', sans-serif;
+        }
+
+        .font-Header-cap {
+            text-transform: uppercase;
+        }
+
+        .atl_header-center h4 {
+            text-align: center;
+        }
+
+        .market_dates {
+            background-color: none;
+        }
+
+        .alt_margin {
+            margin-top: 110px;
+        }
+
+        .paddingLR {
+            padding-left: 50px;
+            padding-right: 50px;
+        }
+
+        .fa {
+            color: #fff;
+            padding-right: 5px;
+            padding-left: 5px;
+        }
+
+        .fa:hover {
+            color: #ddd;
+        }
+
+        .bttn {
+            color: #fff;
+        }
+
+        .border-color {
+            border-left: 50px solid #5f6b6a;
+        }
+
+        .border-color-2 {
+            border-right: 50px solid #ebb2a4;
+        }
+
+        .white-bg-trans-70 {
+            background-color: rgba(225, 225, 225, 0.7);
+        }
+
+        .border-top {
+            border-top: 5px solid #f3a838;
+            width: 100%;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .height-600 {
+                height: none;
+            }
+            .font-size-40 {
+                font-size: 35px;
+            }
+            .background-image {
+                width: 100%;
+                background-size: cover;
+                border: none;
+                background-position: center;
+            }
+        }
+    </style>
+
+
+
+    <div class="grid-wrapper background-image" style="background-image:url('https://www.americasmart.com/hubfs/sts_update/Jan19_Blog_STS_688x450.jpg')">
+        <!-- <div class="overlay white-bg-trans-70"> </div> -->
+        <div class="grid-container">
+            <div class="column eight hero height-500">
+                <div class="margin-three">
+                    <!-- <div class="column eight alt_margin" style=""> <img class="align-center block width-100 center" src="https://www.americasmart.com/hubfs/sts_update/shop-the-show_logo-single-color.jpg"
+                                style="max-width:500px;" /> </div> -->
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="grid-wrapper">
+        <div class="grid-container align-center margin-four">
+            <h4 class="font-Header font-size-30 sts_text">
+                <strong>The Most Anticipated Shopping Event of the Year Returns at the Country’s Leading Home, Gift &amp; Lifestyle
+                    Marketplace.
+                </strong>
+            </h4>
+
+            <h4 class="none">
+                <i> Your Favorite Faces. The Most Coveted Brands. The Nation’s #1 Wholesale Marketplace.
+                </i>
+            </h4>
+
+            <p class="font-size-20 none" style="line-height: 1.3;">Back by popular demand, AmericasMart Atlanta welcomes back Shop the Show this January, a curated shopping experience
+                for retailers, designers and home decor-lovers near and far—through the eyes of leading influencers. </p>
+
+            <br>
+
+            <!-- <div id="golden-bar"> <img src="https://www.americasmart.com/hubfs/sts_update/shop-the-show-landing-w19.jpg">
+                </div> -->
+            <div class="column eight border-top"> </div>
+
+            <h2>
+                <i>What’s New for Season Two? More Star Power. More Parties. The Ultimate Brands.
+                </i>
+            </h2>
+
+            <p class="font-size-20" style="line-height: 1.3;"> The curated shopping experience is back by popular demand! Join these designers and do-it-yourselfers as they
+                scour Market and (literally) shop ’til they drop to find the most trend-forward home décor, gift, tabletop,
+                and seasonal merchandise this January. And be sure to catch their favorite picks and experiences through
+                social media, videos, workshops, a live pop-up … plus tons of special events you can join!
+            </p>
+
+
+            <p class="font-size-20">Get a front row seat at
+                <a style="color:#ebb2a4;text-decoration:underline;" href="https://www.instagram.com/explore/tags/shoptheshowatl/" target="__blank">
+                    <b>#SHOPTHESHOWATL</b>
+                </a> to see what’s new for the next season!
+            </p>
+        </div>
+
+        <a ng-click="scrollTo('hommemaker')"></a>
+        <div class="grid-container" id="hommemaker">
+            <div class="column eight border-top">
+
+                <div class="column four" style="background-image:url('https://www.americasmart.com/hubfs/sts_update/STS19_Landing%20Page%20headshots_r1Annette-Joseph.jpg'); background-size: cover;">
+                    <div class="height-600 border-color-2">
+                        <div class="column one">
+                            <div class="overlay black-bg-trans-30"> </div>
+                        </div>
+                        <div class="">
+                            <img src="" class="width-100">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="column four sts_bg_2 infor-height height-600">
+                    <div class="align-center margin-four">
+                        <h2 class="font-Header font-Header-cap white font-size-40">Annette Joseph </h2>
+                        <p class="white font-size-20 thin">
+                            <i> ANNETTE JOSEPH STYLE
+                                <br />
+                                <a href="https://www.instagram.com/annettejosephstyle/ " target="_blank" class="white">@annettejosephstyle</a>
+                                <a href="https://www.instagram.com/stylephotoworkshops/ " target="_blank" class="white">@stylephotoworkshops</a>
+                            </i>
+                        </p>
+                        <p class="font-size-new white paddingLR">
+                            <b> Lifestyle Expert, Author of
+                                <i>Cocktail Italiano</i> and Named One of The Salonniere's 100 Best Party Hosts</b>
+                            <br>Annette Joseph is a nationally known expert on entertaining, cooking, photo styling, and interior
+                            design and is a stylist for numerous lifestyle magazines. With a solid background in everything
+                            from DIY projects to food, Annette has worked on countless projects with cookbook authors and
+                            top-notch magazines such as
+                            <i>Better Homes &amp; Gardens</i>,
+                            <i>Redbook</i>, and
+                            <i>People</i>, and is a lifestyle contributor and entertaining expert on the
+                            <i>Today Show, Better Mornings</i>, and Martha Stewart Sirius Radio. Her recipes and party ideas
+                            have been featured in the Huffington Post,
+                            <i>Southern Living, and Woman's World</i>, among others. Annette splits her time between Atlanta
+                            and Tuscany, Italy, where she and her husband are restoring a medieval fortress.
+                        </p>
+
+                        <!-- <p>Annette Joseph is a nationally known expert on entertaining, cooking, photo styling, and
+                            interior design stylist for numerous lifestyle magazines. With a solid background in
+                            everything from DIY projects to food, Annette has worked on countless projects with
+                            cookbook authors and top-notch magazines, such as Better Homes &amp; Gardens, Redbook, and
+                            People, and is a lifestyle contributor and entertaining expert on the Today Show, Better
+                            Mornings, and Martha Stewart Sirius Radio. Her recipes and party ideas have been featured
+                            in the Huffington Post, Southern Living, and Woman's World, among others. Annette splits
+                            her time between Atlanta and Tuscany, Italy, where she and her husband are restoring a
+                            medieval fortress. </p> -->
+                        <p class="white paddingLR align-center none">Get to know Annette! </p>
+
+                        <div>
+                            <a href=" https://www.facebook.com/annettejosephstyle/" target="_blank">
+                                <i class="fa fa-facebook-f fa-2x"></i>
+                            </a>
+                            <a href="https://twitter.com/ajosephstyle?lang=en" target="_blank">
+                                <i class="fa fa-twitter fa-2x"></i>
+                            </a>
+                            <a href="https://www.instagram.com/annettejosephstyle/ " target="_blank">
+                                <i class="fa fa-instagram fa-2x"></i>
+                            </a>
+                        </div>
+                        <span class="align-center margin-two none">
+                            <a href="https://www.americasmart.com/blog/shop-the-show-influencer-qa-orlando-soria" class="bttn size-200 none">
+                                See More</a>
+                        </span>
+                        <!-- <span class="align-center margin-two"><a href="https://www.americasmart.com/blog/shop-the-show-influencer-qa-orlando-soria"
+                                    class="bttn size-150">Q&A</a></span>
+                            <span class="align-center margin-two"><a href="https://www.americasmart.com/blog/shop-the-show-recap-orlando-soria"
+                                    class="bttn size-150">Market Recap</a></span> -->
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="grid-container" style="background-image:url('https://www.americasmart.com/hubfs/sts_update/P6160360_web.jpg'); background-position: center;">
+            <div class="overlay white-bg-trans-70"> </div>
+            <div class="column eight hero height-400">
+                <div class="margin-three">
+                    <div class="column eight alt_margin" style="">
+                        <div class="align-center margin-four">
+                            <h2 class="font-Header font-size-40" style="font-weight: bold;">Meet Annette Joseph, Photo Stylist &amp; Producer </h2>
+                            <h2 class="font-size-30"></h2>
+                            <!-- <h2 class="font-size-30 thin none">Coming Soon!</h2> -->
+                            <br>
+                            <span class="">
+                                <a href="https://www.americasmart.com/blog/shop-the-show-influencer-annette-joseph" target="_blank" class="align-center bttn fill gray size-200">Q&amp;A</a>
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <a ng-click="scrollTo('the-home-edit')"></a>
+        <div class="grid-container" id="the-home-edit">
+            <div class="column eight">
+                <div class="column four sts_bg infor-height height-600">
+                    <div class="align-center margin-four">
+                        <h2 class="font-Header font-Header-cap white font-size-40">JENNY KOMENDA </h2>
+                        <p class="font-size-20 white thin">
+                            <i>Juniper Home &amp; Little Green Notebook
+                                <br />
+                                <a href=" https://www.instagram.com/jennykomenda/ " target="_blank" class="white">@jennykomenda </a>
+                            </i>
+                        </p>
+                        <p class="font-size-new white paddingLR paddingTop">
+                            <b>Designer, Blogger and Founder of Juniper Home </b>
+                            <br> Beloved interior designer, editorial voice and blogger Jenny Komenda is the founder of Juniper
+                            Home, a Phoenix-based interiors media and products company. Since 2007, Jenny has been sharing
+                            her favorite products, ideas and projects on her blog, Little Green Notebook. In 2017, Jenny
+                            launched her fast-growing Print Shop that provides affordable, beautiful art in an accessible
+                            way. Jenny's interior design work and products have been featured in publications ranging from
+                            <i>House Beautiful</i> to
+                            <i>Vogue</i> to the
+                            <i>Wall Street Journal</i>. She is a contributing editor for
+                            <i>Domino Magazine</i> and was named as a designer to watch by
+                            <i>Elle Decor</i>.
+
+                        </p>
+                        <p class="white paddingLR align-center none">Get to know Jenny! </p>
+
+                        <!-- <span class="align-center margin-two"><a href="https://www.americasmart.com/blog/clea-shearer-joanna-teplin"
+                                    class="bttn size-150">Q&amp;A – Coming Soon</a></span>
+                            <span class="align-center margin-two"><a href="https://www.americasmart.com/blog/the-home-edit-recap"
+                                    class="bttn size-150">Market Recap</a></span> -->
+                        <div class="">
+                            <a href="https://www.facebook.com/Little-Green-Notebook-307982329249091/" target="_blank">
+                                <i class="fa fa-facebook-f fa-2x"></i>
+                            </a>
+                            <a href="https://twitter.com/jennykomenda " target="_blank">
+                                <i class="fa fa-twitter fa-2x"></i>
+                            </a>
+                            <a href="https://www.instagram.com/jennykomenda/ " target="_blank">
+                                <i class="fa fa-instagram fa-2x"></i>
+                            </a>
+                        </div>
+                        <span class="align-center margin-two none">
+                            <a href="https://www.americasmart.com/blog/clea-shearer-joanna-teplin" class="bttn size-200">See More</a>
+                        </span>
+                    </div>
+                </div>
+                <div class="column four" style="background-image:url('https://www.americasmart.com/hubfs/sts_update/Jenny%20headshot.jpeg'); background-size: cover;">
+                    <div class="height-600 border-color">
+                        <div class="column one">
+                            <div class="overlay black-bg-trans-30"> </div>
+                        </div>
+                        <div class="">
+                            <img src="" class="width-100">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="grid-wrapper background-image">
+
+        <div class="grid-container" style="background-image:url('https://www.americasmart.com/hubfs/sts_update/for%20Jenny.jpg'); background-position: center;">
+            <div class="overlay white-bg-trans-70"> </div>
+            <div class="column eight hero height-400">
+                <div class="margin-three">
+                    <div class="column eight alt_margin" style="">
+                        <div class="align-center margin-four">
+                            <h2 class="font-Header font-size-40" style="font-weight: bold;">Meet Jenny Komenda of Juniper Home &amp; Little Green Notebook </h2>
+                            <h2 class="font-size-30">Q&amp;A - Coming Soon!</h2>
+                            <br>
+                            <span class="none">
+                                <a href="#" class="align-center bttn fill gray size-200">Q&amp;A – Coming Soon</a>
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <a ng-click="scrollTo('chris-loves-julia')"></a>
+        <div class="grid-container" id="chris-loves-julia">
+            <div class="column eight border-top">
+                <div class="column four sts_bg infor-height height-600">
+                    <div class="align-center margin-four">
+                        <h2 class="font-Header font-Header-cap white font-size-40">Mandy Kellogg Rye</h2>
+                        <p class="white font-size-20 thin">
+                            <i>Waiting On Martha
+                                <br />
+                                <a href="https://www.instagram.com/waitingonmartha/ " target="_blank" class="white">@waitingonmartha</a>
+                            </i>
+                        </p>
+                        <p class="font-size-new white paddingLR">
+                            <b>Retailer, Blogger and Founder of Waiting On Martha</b>
+                            <br> Waiting On Martha boasts a lifestyle blog, e-commerce channel, and brick and mortar home and
+                            gift shop in Atlanta. Born under the premise of inspiring others to create a beautiful everyday,
+                            Mandy’s take on joyful living, from recipes and entertaining to home decorating and travel, resonates
+                            deeply with her readers and attracts brand partnerships with the likes of Williams Sonoma, Pottery
+                            Barn, Frontgate, and Whole Foods just to name a few. Mandy’s beloved brand was originally an
+                            homage to her favorite personality, Martha Stewart, but over the years, she has made quite the
+                            name for herself being featured in top magazines such as
+                            <i>House Beautiful, Harper’s Bazaar, Lonny</i> and many more. When Mandy isn’t Martha, you can find
+                            her at home with her husband, Anthony, and King Charles Cavalier, Addison.
+                        </p>
+                        <p class="white paddingLR align-center none"> Get to know Mandy! </p>
+                        <div>
+                            <a href="https://www.facebook.com/WaitingOnMartha/" target="_blank">
+                                <i class="fa fa-facebook-f fa-2x"></i>
+                            </a>
+                            <a href="https://twitter.com/waitingonmartha?lang=en" target="_blank">
+                                <i class="fa fa-twitter fa-2x"></i>
+                            </a>
+                            <a href="https://www.instagram.com/waitingonmartha/ " target="_blank">
+                                <i class="fa fa-instagram fa-2x"></i>
+                            </a>
+                        </div>
+                        <!--<span class="align-center margin-two"><a href="https://www.americasmart.com/blog/shop-the-show-influencer-qa-chris-julia-marcum" class="bttn size-200 none"> See More</a></span>-->
+                        <!-- <span class="align-center margin-two"><a href="https://www.americasmart.com/blog/shop-the-show-influencer-qa-chris-julia-marcum"
+                                    class="bttn size-150">Q&A</a></span>
+                            <span class="align-center margin-two"><a href="https://www.americasmart.com/blog/recap-chris-loves-julia"
+                                    class="bttn size-150">Market Recap</a></span> -->
+                    </div>
+                </div>
+                <div class="column four" style="background-image:url('https://www.americasmart.com/hubfs/sts_update/STS19_Landing%20Page%20headshots_r1MKR.jpg'); background-size: cover;">
+                    <div class="height-600 border-color">
+                        <div class="column one">
+                            <div class="overlay black-bg-trans-30"> </div>
+                        </div>
+                        <div class="">
+                            <img src="" class="width-100">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-container" style="background-image:url('https://www.americasmart.com/hubfs/sts_update/WOM--Interiors-1_26_15_Rustic-White002_web.jpg'); background-position: center;">
+            <div class="overlay white-bg-trans-70"> </div>
+            <div class="column eight hero height-400">
+                <div class="margin-three">
+                    <div class="column eight alt_margin" style="">
+                        <div class="align-center margin-four">
+                            <h2 class="font-Header font-size-40" style="font-weight: bold;">Meet Mandy Kellogg Rye of Waiting on Martha Home </h2>
+                            <h2 class="font-size-30">Q&amp;A - Coming Soon!</h2>
+                            <br>
+                            <br>
+                            <span class="none">
+                                <a href="#" class="align-center bttn fill gray size-200">Q&amp;A – Coming Soon</a>
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <a ng-click="scrollTo('chris-loves-julia')"></a>
+        <div class="grid-container" id="chris-loves-julia">
+            <div class="column eight border-top">
+                <div class="column four sts_bg infor-height height-600">
+                    <div class="align-center margin-four">
+                        <h2 class="font-Header font-Header-cap white font-size-40">Kelsey Nixon</h2>
+                        <p class="white font-size-20 thin">
+                            <i>Kelsey Nixon
+                                <br />
+                                <a href=" https://www.instagram.com/kelseynixon" target="_blank" class="white">@kelseynixon </a>
+                            </i>
+                        </p>
+                        <p class="font-size-new white paddingLR">
+                            <b>Kelsey Nixon is an Emmy-nominated TV personality, author, wife, mom, and cooking show host. </b>
+                            <br> She hosts Kelsey’s Essentials and Kelsey’s Homemade on Cooking Channel and was a finalist on
+                            season 4 of Food Network Star. Kelsey’s cookbook Kitchen Confidence and her exclusive product
+                            line with HSN help home cooks navigate the kitchen with confidence. You can also catch Kelsey
+                            dishing about her favorite sweet treats on Unique Sweets and judging on Food Network favorites
+                            like Guy’s Grocery Games and Chopped Junior. Kelsey’s newest project, a family food game show
+                            titled Dinner Takes All, will premier in March of 2019. Kelsey lives in Portland, OR with her
+                            husband Robby and 2 kids, Ollie and Nora.
+
+                        </p>
+                        <p class="white paddingLR align-center none"> Get to know Kelsey! </p>
+                        <div>
+                            <a href="https://www.facebook.com/kelseysessentials/" target="_blank">
+                                <i class="fa fa-facebook-f fa-2x"></i>
+                            </a>
+                            <a href="https://twitter.com/KelseyNixon" target="_blank">
+                                <i class="fa fa-twitter fa-2x"></i>
+                            </a>
+                            <a href="https://www.instagram.com/kelseynixon" target="_blank">
+                                <i class="fa fa-instagram fa-2x"></i>
+                            </a>
+                        </div>
+                        <!--<span class="align-center margin-two"><a href="https://www.americasmart.com/blog/shop-the-show-influencer-qa-chris-julia-marcum" class="bttn size-200 none"> See More</a></span>-->
+                        <!-- <span class="align-center margin-two"><a href="https://www.americasmart.com/blog/shop-the-show-influencer-qa-chris-julia-marcum"
+                                    class="bttn size-150">Q&A</a></span>
+                            <span class="align-center margin-two"><a href="https://www.americasmart.com/blog/recap-chris-loves-julia"
+                                    class="bttn size-150">Market Recap</a></span> -->
+                    </div>
+                </div>
+                <div class="column four" style="background-image:url('https://www.americasmart.com/hubfs/sts_update/Kelsey%20Nixon.jpg'); background-size: cover;">
+                    <div class="height-600 border-color">
+                        <div class="column one">
+                            <div class="overlay black-bg-trans-30"> </div>
+                        </div>
+                        <div class="">
+                            <img src="" class="width-100">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-container" style="background-image:url('https://www.americasmart.com/hubfs/sts_update/WOM--Interiors-1_26_15_Rustic-White002_web.jpg'); background-position: center;">
+            <div class="overlay white-bg-trans-70"> </div>
+            <div class="column eight hero height-400">
+                <div class="margin-three">
+                    <div class="column eight alt_margin" style="">
+                        <div class="align-center margin-four">
+                            <h2 class="font-Header font-size-40" style="font-weight: bold;">Meet Kelsey Nixon!</h2>
+                            <h2 class="font-size-30">Q&amp;A - Coming Soon!</h2>
+                            <br>
+                            <br>
+                            <span class="none">
+                                <a href="#" class="align-center bttn fill gray size-200">Q&amp;A – Coming Soon</a>
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="column eight border-top">
+            <br>
+            <br>
+
+            <!-- <a ng-click="scrollTo('the-house-that-lars-built')"></a>
+            <div class="grid-container" id="the-house-that-lars-built">
+                <div class="column eight border-top">
+    
+                    <div class="column four" style="background-image:url('https://www.americasmart.com/hubfs/Brittany-Watson-Jepsen_Optimized_new.jpg'); background-size: cover;">
+                        <div class="height-600 border-color-2">
+                            <div class="column one">
+                                <div class="overlay black-bg-trans-30"> </div>
+                            </div>
+                            <div class="">
+                                <img src="" class="width-100">
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="column four sts_bg_2 infor-height height-600">
+                        <div class="align-center margin-four">
+                            <h2 class="font-Header font-Header-cap white font-size-40">The House That Lars Built</h2>
+                            <p class="white font-size-20 thin"><i>Brittany Watson Jepsen<br /> <a href="https://www.instagram.com/houselarsbuilt/"
+                                        class="white">@houselarsbuilt</a></i></p>
+                            <p class="white paddingLR"><b>Brittany Watson Jepsen is the founder and creative director of
+                                    The House That Lars Built</b>, a craft and design lifestyle website focused on artful
+                                living. The House That Lars Built has been featured in <i>The New York Times</i>, <i>The
+                                    Today Show</i>, <i>Vogue</i>, CNN, and many others and was a finalist in the Home and
+                                House category of The Shorty Awards. She is the author of <i>Craft the Rainbow</i>, out
+                                this year by Abrams, and recently became a mother to Jasper. She lives in Provo, Utah.</p>
+                            <div>
+                                <a href="https://www.facebook.com/TheHouseThatLarsBuilt" target="_blank"><i class="fa fa-facebook-f fa-2x"></i></a>
+                                <a href="https://twitter.com/HouseLarsBuilt" target="_blank"><i class="fa fa-twitter fa-2x"></i></a>
+                                <a href="https://www.instagram.com/houselarsbuilt" target="_blank"><i class="fa fa-instagram fa-2x"></i></a>
+                            </div>
+                            <span class="align-center margin-two"><a href="https://www.americasmart.com/blog/shop-the-show-influencer-qa-brittany-watson-jepsen" class="bttn size-200"> See More</a></span>
+                            <span class="align-center margin-two"><a class="bttn size-150" href="https://www.americasmart.com/blog/shop-the-show-influencer-qa-brittany-watson-jepsen">Q&A</a></span>
+                            <span class="align-center margin-two"><a href="https://www.americasmart.com/blog/shop-the-show-recap-the-house-lars-built"
+                                    class="bttn size-150">Market Recap</a></span>
+    
+    
+    
+    
+                        </div>
+                    </div>
+                </div>
+    
+            </div>
+            <div class="none grid-container" style="background-image:url('https://www.americasmart.com/hubfs/images/section_2_bg.jpg'); background-position: center;">
+                <div class="overlay white-bg-trans-70"> </div>
+                <div class="column eight hero height-400">
+                    <div class="margin-three">
+                        <div class="column eight alt_margin" style="">
+                            <div class="align-center margin-four">
+                                <h2 class="font-Header font-size-40" style="font-weight: bold;">Brittany Watson Jepsen<br />
+                                    of The House That Lars Built</h2>
+                                <h2 class="font-size-30 thin none">Coming Soon!</h2>
+                                <span class="none"><a href="#" class="bttn fill gray size-200 none">Learn More</a></span>
+                            </div>
+                        </div>
+    
+                    </div>
+                </div>
+            </div>
+     
+    
+    
+    
+            <!-- <script>
+                $(document).ready(function () {
+                    //  $("#ran").click(function(){
+                    var x;
+                    var message = "Learn More";
+                    var hr_line = "<hr class='clear gray-0-bg'>";
+                    var josh_upperlimit;
+                    var count = 0;
+                    var holder = [];
+    
+    
+                    //var pointerEvent = new PointerEvent(Boolean);
+                    // var isPrimary = pointerEvent.isPrimary;
+    
+    
+                    $.getJSON('https://wem.americasmart.com/api/Search/event', function (result) {
+    
+                        $.each(result, function (i, field) {
+    
+                            //console.log(result[i].photos[i].pointerEvent.isPrimary);
+                            if (result[i].market.marketID == 8 && result[i].eventID == 6594) {
+                                var dateChanger = result[i].startDateTime;
+                                var dateFill = dateChanger.match(
+                                    /(\d+)-(\d+)-(\d+)T(\d+):(\d+):(\d+)([+\-]\d+):(\d+)/);
+                                var options = {
+                                        timeZone: "America/New_York"
+                                    },
+                                    dateFill = new Date(dateChanger);
+    
+                                var str = dateFill.toLocaleTimeString("en-US", options);
+                                str = str.replace(':00 ', ' ');
+    
+    
+                                var photoTrue;
+                                for (var x = 0; x < result[i].photos.length; x++) {
+                                    var isPrimary = result[i].photos[x].isPrimary;
+                                    if (isPrimary === true) {
+                                        photoTrue = result[i].photos[x].photoLoc;
+                                        console.log(photoTrue);
+                                    }
+                                }
+                                //console.log(photoCheck);
+    
+    
+    
+                                $("#Photo-Education").append("<div class='height-250'><img src=" +
+                                    photoTrue + " class='height-250 block align-center'></div>"
+                                );
+                            }
+                        });
+                    });
+                });
+            </script> -->
+
+
+
+
+
+            <div class="grid-container border-top none" style="background-color: #f2eeed;">
+                <div class="column eight align-center margin-four">
+                    <h2 class="font-Header font-Header-cap font-size-40">EVENTS</h2>
+                    <div class="column three none">
+
+                        <div class="align-center margin-two">
+                            <h4 class="font-size-20">
+                                <i>“At Market” Experience</i>
+                            </h4>
+                            <p>Lorem Ipsum is simply dummy
+                                <br />text of the printing and
+                                <br />typesetting industry</p>
+                            <span class="none">
+                                <a href="#" class="bttn gray size-200 none">Learn More</a>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="column four">
+                        <span id="Photo-Education"></span>
+                        <div class="align-center margin-two">
+                            <h4 class="font-size-20">
+                                <i>Shop the Show Panel</i>
+                            </h4>
+                            <p class="margin-one">Our influencers join a panel
+                                <br />discussion to talk about their
+                                <br />first-ever Atlanta Market
+                                <br />experience and share their
+                                <br />expertly-curated discoveries</p>
+                            <span class="align-center">
+                                <a href="https://www.americasmart.com/browse/#/events/6594 " class="bttn gray size-200 none">Learn More
+                                </a>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="column four">
+                        <a href="https://www.americasmart.com/browse/#/events/6591">
+                            <img src="https://www.americasmart.com/hubfs/images/July18_STS-Soiree_logo_r1-01-small.jpg">
+                        </a>
+                        <div class="align-center margin-two">
+                            <h4 class="font-size-20">
+                                <i>Shop the Show Soir&egrave;e</i>
+                            </h4>
+                            <p class="margin-one">Friday, July 13 | 4 p.m.
+                                <br />Join us for a floor-wide cocktail
+                                <br />party and mix and mingle with our
+                                <br />Shop the Show influencers.
+                                <br />
+                                <br />
+                            </p>
+                            <span class="align-center">
+                                <a href="https://www.americasmart.com/browse/#/events/6591" class="bttn gray size-200 none">Learn More
+                                </a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <br>
+
+            <div class="grid-container">
+                <div class="column eight align-center margin-four">
+                    <h2 class="font-Header font-Header-cap font-size-40" style="color: #738c89">Presented by</h2>
+                </div>
+
+                <div class="column eight margin-four">
+                    <div class="column four">
+                        <div class="padding-three">
+                            <a href="https://www.americasmart.com/markets/january-gift-home-rug/#/" target="_blank">
+                                <div class="height-100 width-80" style="background-image: url('https://www.americasmart.com/hubfs/images/Shop-The-Show-SPONSORE/Logo_AmericasMart-Black.png'); background-repeat: no-repeat; background-size: contain; background-position: center;">
+
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="column four">
+                        <div class="padding-three">
+                            <a href="https://restylesource.com/
+                                " target="_blank">
+                                <div class="height-100" style="background-image: url('https://www.americasmart.com/hubfs/images/Shop-The-Show-SPONSORE/RSSlogo_fullcircle-Black.png');  background-repeat: no-repeat; background-size: contain; background-position: center;">
+
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="column eight align-center margin-four">
+                    <h2 class="font-Header font-Header-cap font-size-40">Sponsored by</h2>
+                </div>
+
+                <div class="column eight margin-four">
+                    <div class="column two">
+                        <div class="padding-three">
+                            <a href="https://www.accentdecor.com/" target="_blank">
+                                <div class="height-100" style="background-image: url('https://www.americasmart.com/hubfs/sts_update/AD%20Black%2024x24.jpg'); background-repeat: no-repeat; background-size: contain; background-position: center;">
+
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="column two">
+                        <div class="padding-three">
+                            <a href="http://goldeagleusa.azurewebsites.net/" target="_blank">
+                                <div class="height-100" style="background-image: url('https://www.americasmart.com/hubfs/sts_update/GOLD%20EAGLE%20LOGO_Grey%20copy.png');  background-repeat: no-repeat; background-size: contain; background-position: center;">
+
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="column two">
+                        <div class="padding-three">
+                            <a href="http://ruemag.com/" target="_blank">
+                                <div class="height-100" style="background-image: url('https://www.americasmart.com/hubfs/sts_update/new%20rue%20logo.png');  background-repeat: no-repeat; background-size: contain; background-position: center;">
+
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="column two">
+                        <div class="padding-three">
+                            <a href="https://www.razimports.com/" target="_blank">
+                                <div class="height-100" style="background-image: url('https://www.americasmart.com/hubfs/sts_update/RAZ_Logo_3-16-15.png');  background-repeat: no-repeat; background-size: contain; background-position: center;">
+
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="column eight margin-four">
+                    <div class="column three">
+                        <div class="padding-three">
+                            <a href="https://www.sullivangift.com/" target="_blank">
+                                <div class="height-100" style="background-image: url('https://www.americasmart.com/hubfs/sts_update/Sullivans_Logo_4c_outlined2015_grey.png'); background-repeat: no-repeat; background-size: contain; background-position: center;">
+
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="column three">
+                        <div class="padding-three">
+                            <a href="https://www.vietri.com/" target="_blank">
+                                <div class="height-100" style="background-image: url('https://www.americasmart.com/hubfs/sts_update/Vietri_Logo_Family_170127_Vietri%20Logo%20BrandColor.png');  background-repeat: no-repeat; background-size: contain; background-position: center;">
+
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="column three">
+                        <div class="padding-three">
+                            <a href="https://www.lancasterandvintage.com/" target="_blank">
+                                <div class="height-100" style="background-image: url('https://www.americasmart.com/hubfs/sts_update/Vintage%20Floral%20%20%20Lancaster%20Home%20logo.png');  background-repeat: no-repeat; background-size: contain; background-position: center;">
+
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+                <div class="grid-wrapper amc-gray-1-bg none" style="">
+
+                    <div class="grid-container margin-four">
+                        <div class="">
+                            <div class="padding-four vertical">
+                                <div class="margin-one">
+                                    <h2>Let's Stay In Touch</h2>
+                                    <p class="width-95">We would love to hear from you. Let us know if you have any questions about our upcoming
+                                        shows. We are happy to help.</p>
+                                    <h4>
+
+                                        <a href="#form" class="next more-info medium" data-request="market">Contact AmericasMart
+                                        </a>
+
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!--===============================================================================-->
+
+                <!-- <style>
+            .swiper-button-prev {
+                left: -14px;
+            }
+    
+            .swiper-button-next {
+                right: -14px;
+            }
+    
+            .swiper-button-prev,
+            .swiper-button-next {
+                width: 40px;
+                height: 34px;
+                background: rgba(255, 255, 255, 1.0);
+                background: none;
+            }
+    
+            .parallax-bg {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 130%;
+                height: 100%;
+                /*-webkit-background-size: cover;
+                    background-size: cover;*/
+                background-position: center center;
+                background-repeat: repeat;
+            }
+    
+            .fraction {
+                position: absolute;
+                top: 9px;
+            }
+    
+            .controls,
+            .showguide-controls {
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 140px;
+                height: 100%;
+                display: none;
+            }
+    
+            /*#videos .height-250 {position:relative;padding-top:30px;padding-bottom:46%;height:0;overflow:hidden;}*/
+            /*#videos .height-250 iframe {width:100%;height:100%;}*/
+    
+            @media screen and (max-width:650px) {
+                .fraction {
+                    text-align: right;
+                    top: 5px;
+                }
+    
+                /*.fraction:after {*/
+                /*  font-family: 'amc-www';*/
+                /*  content:" \2192 ";*/
+                /*}*/
+            }
+        </style>
+     -->
+
+
+                <div class="grid-wrapper">
+                    <div class="grid-container">
+                        <div id="amc-videos">
+
+                            <!-- <h2 class="font-size-50">Shop the Show Season One: A Look Back</h2> -->
+                        </div>
+
+                    </div>
+
+
+                    <!-- <h2 class="align-center">More influencers to be announced soon! </h2> -->
+                </div>
+                <!-- <h2 class="font-size-26 bold mbl"><a class="spooki amc-gray-6 ng-binding" href="#youtube" ng-click="vm.modalLaunch($event)">Shop
+                        the Show Season One: A Look Back</a></h2> -->
+
+                <!-- <style>
+            .zine-box {
+                transition-property: transform;
+                transition-duration: 3s;
+            }
+    
+            .swiper-button-prev {
+                left: -14px;
+            }
+    
+            .swiper-button-next {
+                right: -14px;
+            }
+    
+            .swiper-button-prev,
+            .swiper-button-next {
+                width: 40px;
+                height: 34px;
+                background: rgba(255, 255, 255, 1.0);
+                background: none;
+            }
+    
+            .parallax-bg {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 130%;
+                height: 100%;
+                /*-webkit-background-size: cover;
+                        background-size: cover;*/
+                background-position: center center;
+                background-repeat: repeat;
+            }
+    
+            .fraction {
+                position: absolute;
+                top: 10px;
+                left: 0;
+                right: 0;
+                margin: auto;
+            }
+    
+            .controls,
+            .showguide-controls {
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 140px;
+                height: 100%;
+                display: none;
+            }
+    
+            @media screen and (max-width:650px) {
+                .fraction {
+                    text-align: right;
+                    top: 5px;
+                }
+    
+                /*.fraction:after {
+                    font-family: 'amc-www';
+                    content:" \2192 ";
+                  }*/
+            }
+    
+            @media screen and (min-width:1300px) {
+                .width-95 {
+                    width: 100%;
+                }
+            }
+    
+            .border-top-blue {
+                border-top: 3px solid #00c0f2;
+            }
+    
+            .border-top-amg-gray-5 {
+                border-top: 3px solid #666666;
+            }
+    
+            .speakers .swiper-slide,
+            .videos .swiper-slide,
+            .live {
+                width: auto;
+            }
+    
+            .speakers .swiper-wrapper,
+            .live .swiper-wrapper {
+                height: 400px;
+            }
+    
+            .schedule .swiper-slide {
+                width: auto;
+            }
+    
+            .events .swiper-slide {
+                width: 280px;
+                margin: 0 0 0 0;
+            }
+    
+            .events .swiper-slide a.next {
+                color: #666;
+            }
+    
+            .events .swiper-slide .height-200 {
+                background-size: cover;
+                background-position: center center;
+                border-top-left-radius: inherit;
+                border-top-right-radius: inherit;
+                background-repeat: no-repeat;
+            }
+    
+            .events .swiper-slide *.amc-icon {
+                color: #ff3388 !important;
+            }
+    
+            .events .swiper-slide .next {}
+    
+            .live-magenta {
+                color: #ea0e8c;
+            }
+    
+            .live-cyan {
+                color: #2cabe2;
+            }
+    
+            .live-green {
+                color: #ccdc2c;
+            }
+    
+            .live-magenta-bg {
+                background-color: #ea0e8c;
+            }
+    
+            .live-cyan-bg {
+                background-color: #2cabe2;
+            }
+    
+            .live-green-bg {
+                background-color: #ccdc2c;
+            }
+    
+            .live-magenta-bg-trans {
+                background-color: rgba(234, 14, 140, 0.8);
+            }
+    
+            .live-cyan-bg-trans {
+                background-color: rgba(44, 171, 226, 0.8);
+            }
+    
+            .live-green-bg-trans {
+                background-color: rgba(204, 220, 44, 0.8);
+            }
+    
+            .ytVideos .swiper-slide {
+                width: 280px;
+            }
+    
+            .ytVideos .height-250 {
+                position: relative;
+                padding-top: 30px;
+                padding-bottom: 45%;
+                height: 0;
+                overflow: hidden;
+            }
+    
+            .ytVideos .height-250,
+            .ytVideos .height-250+.padding-four>h3 {
+                cursor: pointer;
+            }
+    
+            .ytVideos .height-250 iframe {
+                width: 100%;
+                height: 100%;
+            }
+    
+            .ytVideos iframe,
+            .video-frame iframe {
+                position: absolute;
+                top: 0;
+                width: 100%;
+                height: 100%;
+            }
+    
+            .play {
+                background: #0e1111;
+                border-radius: 50% / 10%;
+                color: #FFFFFF;
+                font-size: 2em;
+                height: 50px;
+                margin: auto;
+                padding: 0;
+                position: absolute;
+                text-align: center;
+                text-indent: 0.1em;
+                transition: all 150ms ease-out;
+                width: 70px;
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+            }
+    
+            .play:hover {
+                background: #cd201f;
+            }
+    
+            .play::before {
+                background: inherit;
+                border-radius: 5% / 50%;
+                bottom: 9%;
+                content: "";
+                left: -5%;
+                position: absolute;
+                right: -5%;
+                top: 9%;
+            }
+    
+            .play::after {
+                border-style: solid;
+                border-width: 11px 0 11px 22px;
+                border-color: transparent transparent transparent rgba(255, 255, 255, 0.75);
+                content: ' ';
+                height: 0;
+                position: absolute;
+                width: 0;
+                top: 0;
+                bottom: 0;
+                margin: auto;
+                left: 7px;
+                right: 0;
+            }
+    
+            .thumb-limit {
+                max-height: 190px;
+                max-width: 190px;
+                width: auto;
+                border: 1px solid #d8d8d8 !important;
+            }
+    
+            .showguide-controls {
+                display: block;
+                height: 50px;
+                float: right;
+                position: inherit;
+            }
+        </style> -->
+
+                <!-- ANGULAR -->
+                <youtube title="Shop the Show Season One: A Look Back" playlistId="PLvIByFcZGTc-vBatgY5rLPn00TW03XQjD" name="americasmartatlanta"></youtube>
+
+                <!--===============================================================================================-->
+
+                <!-- 
+            
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    var swiper_exhibitors = new Swiper('.mustsee', $.extend(true, {}, swiper_settings, {
+                        slidesPerColumn: 1,
+                        spaceBetween: 0,
+                        centeredSlides: false,
+                        slidesPerView: 4,
+                        breakpoints: breaks,
+                        initialSlide: 0,
+                        pagination: '.swiper-pagination',
+                        paginationType : 'fraction',
+                        nextButton: '.swiper-button-next',
+                        prevButton: '.swiper-button-prev',
+                        initialSlide: 0,
+                        observer: true,
+                            //  observeParents: true
+                    }));
+                });
+            </script> -->
+                <div class="grid-container">
+
+                    <div class="column eight margin-two">
+
+                        <h2 class="font-Header font-Header-cap font-size-40 align-center" style="color: #535c97">See the Pop-Ups
+                        </h2>
+                        <br>
+
+                        <a href="https://www.americasmart.com/hubfs/_books/shop-the-show-summer-2018/index.html">
+                            <img src="https://www.americasmart.com/hubfs/_books/shop-the-show-summer-2018/files/thumb/1.jpg" class="block align-center"
+                            />
+                        </a>
+
+                        <br>
+
+                        <div class="align-center margin-two">
+                            <p class="margin-one">Your Style Guide of favorite finds expertly curated by leading lifestyle influencers.
+                            </p>
+                            <span class="align-center">
+                                <a href="https://www.americasmart.com/hubfs/_books/shop-the-show-summer-2018/index.html" class="bttn gray size-200">View the Flip Book</a>
+                            </span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+            <script>
+                jQuery(document).ready(function ($) {
+                    var alterClass = function () {
+                        var ww = document.body.clientWidth;
+                        if (ww < 600) {
+                            $('.infor-height').removeClass('height-600');
+                        } else if (ww >= 601) {
+                            $('.infor-height').addClass('height-600');
+                        };
+                    };
+                    $(window).resize(function () {
+                        alterClass();
+                    });
+                    //Fire it when the page first loads:
+                    alterClass();
+                });
+            </script>
+
+            <script>
+                $(document).ready(function () {
+                    //  $("#ran").click(function(){
+                    var x;
+                    var message = "Learn More";
+                    var hr_line = "<hr class='clear gray-0-bg'>";
+                    var josh_upperlimit;
+                    var count = 0;
+                    var holder = [];
+
+
+                    //var pointerEvent = new PointerEvent(Boolean);
+                    // var isPrimary = pointerEvent.isPrimary;
+
+
+                    $.getJSON('https://wem.americasmart.com/api/Search/event', function (result) {
+
+                        $.each(result, function (i, field) {
+
+                            //console.log(result[i].photos[i].pointerEvent.isPrimary);
+                            if (result[i].market.marketID == 8 && result[i].eventID == 6594) {
+                                var dateChanger = result[i].startDateTime;
+                                var dateFill = dateChanger.match(
+                                    /(\d+)-(\d+)-(\d+)T(\d+):(\d+):(\d+)([+\-]\d+):(\d+)/);
+                                var options = {
+                                    timeZone: "America/New_York"
+                                },
+                                    dateFill = new Date(dateChanger);
+
+                                var str = dateFill.toLocaleTimeString("en-US", options);
+                                str = str.replace(':00 ', ' ');
+
+
+                                var photoTrue;
+                                for (var x = 0; x < result[i].photos.length; x++) {
+                                    var isPrimary = result[i].photos[x].isPrimary;
+                                    if (isPrimary === true) {
+                                        photoTrue = result[i].photos[x].photoLoc;
+                                        console.log(photoTrue);
+                                    }
+                                }
+                                //console.log(photoCheck);
+
+
+
+                                $("#Photo-Education").append(
+                                    "<div class='height-250'><img src=" +
+                                    photoTrue +
+                                    " class='height-250 block align-center'></div>"
+                                );
+                            }
+                        });
+                    });
+                });
+            </script>
